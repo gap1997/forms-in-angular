@@ -1,0 +1,96 @@
+<div *ngIf="!fristname; else forminfo" class="form-group">
+  <form [formGroup]="nForm" (ngSubmit)="addPost(nForm.value)">
+    <h1>Contact our Customer Supoort Center</h1>
+
+    <div>
+      <label>
+        FristName:
+        <input type="text" formControlName="fristname" />
+      </label>
+    </div>
+    <div>
+      <label>
+        LastName:
+        <input type="text" formControlName="lastname" />
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Phone:
+        <input type="text" formControlName="phone" />
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Email:
+        <input type="text" formControlName="email" />
+      </label>
+    </div>
+
+    <div>
+      <label>
+        City:
+        <input type="text" formControlName="city" />
+      </label>
+    </div>
+
+    <div>
+      <label for="state">State:</label>
+      <select id="state" name="state">
+        <option value="">--Please select--</option>
+        <option value="maharashtra">Maharashtra</option>
+        <option value="gujarat">Gujarat</option>
+        <option value="uttar-pradesh">Uttar Pradesh</option>
+      </select>
+    </div>
+
+    <div>
+      <label>
+        Zipcode:
+        <input type="text" name="zipcode" formControlName="zipcode" />
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Comment:
+        <input type="text" formControlName="comment" />
+      </label>
+    </div>
+
+    <div>
+      <label>
+        Your Feedback:
+        <textarea
+          formControlName="description"
+          cols="20"
+          rows="3"
+          class="form-control"
+        ></textarea>
+      </label>
+    </div>
+
+    <div>
+      <button class="btn btn-primary" [disabled]="!nForm.valid">Submit</button>
+    </div>
+  </form>
+</div>
+
+<ng-template #forminfo>
+  <div class="form-container">
+    <div class="row columns">
+      <h1>Contact our Customer Supoort Center</h1>
+      <h2>{{ "Name : " + fristname }}</h2>
+      <h2>{{ "Feedback :" + description }}</h2>
+      <h2>{{ "Last Name " + lastname }}</h2>
+      <h2>{{ "Phone:" + phone }}</h2>
+      <h2>{{ "Email:" + email }}</h2>
+      <h2>{{ "City:" + city }}</h2>
+      <h2>{{ "State:" + state }}</h2>
+      <h2>{{ "Zipcode:" + zipcode }}</h2>
+      <h2>{{ "Comment:" + comment }}</h2>
+    </div>
+  </div>
+</ng-template>
